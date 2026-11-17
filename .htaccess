@@ -1,0 +1,12 @@
+# Deny PHP and CGI script execution in logo upload directory
+<FilesMatch "\.(php|phtml|php3|php4|php5|php7|phps|phar|pl|py|cgi|sh)$">
+    Require all denied
+</FilesMatch>
+
+# Deny directory listing
+Options -Indexes -ExecCGI
+
+# Only allow image content types
+<FilesMatch "\.(jpg|jpeg|png|gif|webp|svg)$">
+    Require all granted
+</FilesMatch>
